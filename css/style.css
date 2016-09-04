@@ -1,0 +1,115 @@
+body {
+  background-color: #eee;
+}
+
+.jumbotron {
+  height: 100vh;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  background: #ffffff url("http://res.cloudinary.com/jawadrashid/image/upload/v1472722089/Portfolio/Website%20Backgrounds/Portfolio_Background_Edited.jpg") no-repeat left top;
+
+}
+
+.container {
+  height: 75%;
+}
+
+.heading {
+  background-color: transparent;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.row-content,
+.centerContainer {
+  height: 100%;
+}
+
+.centerContainer {
+  background-color: white;
+}
+
+
+/* body, html { 
+    overflow-y: hidden; 
+    overflow-x: auto;
+}
+ */
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px;
+  resize: vertical;
+  overflow: auto;
+}
+
+.flex-center p {
+  margin: 0;
+  padding: 20px;
+}
+
+.headings {
+  position: absolute;
+  color: white;
+  top:20px;
+  
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.contactInfo {
+  display: inline-block;
+  padding-right:5px;
+}
+
+.fa-envelope {
+    color: #dd4b39;
+}
+
+.fa-wordpress {
+    color: #464646;
+}
+
+.fa-wikipedia-w {
+    color: #21759b;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-twitter {
+    color: #55acee;
+}
+
+.fa-behance {
+    color: #1769ff;
+}
+
+.fa-youtube {
+    color: #e52d27;
+}
+
+.fa-github {
+    color: #333;
+}
+
+.fa-google-plus {
+    color: #dd4b39;
+}
+
+.fa-linkedin {
+    color: #0976b4;
+}
+
+.fa-codepen {
+    color: #000;
+}
