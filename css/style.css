@@ -138,3 +138,7 @@ body {
     left: -50px;
     top: -50px;
 }
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    pointer-events: none;
+}

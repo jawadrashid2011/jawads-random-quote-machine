@@ -25,30 +25,34 @@ function calculateJumbotronHeight() {
 
 
   //center footer to bottom
-  setTimeout(function () {
-    var fullHeight = window.innerHeight;
-    var footerHeight = $(".footer").outerHeight();
-    var footerWidth = $('.footer').outerWidth();
+  //setTimeout(function () {
+  var fullHeight = window.innerHeight;
+  var footerHeight = $(".footer").outerHeight();
+  var footerWidth = $('.footer').outerWidth();
 
-    var footerLeftPosition = ($(window).innerWidth() - footerWidth) / 2;
+  var footerLeftPosition = ($(window).innerWidth() - footerWidth) / 2;
 
-    $(".footer").css("left", footerLeftPosition + "px");
-    $(".footer").css("top", (fullHeight - (footerHeight + 20)) + "px");
+  $(".footer").css("left", footerLeftPosition + "px");
+  $(".footer").css("top", (fullHeight - (footerHeight + 20)) + "px");
 
-    //Find Place for refresh button
-    var refreshLeftPos = $("#centerContainer").offset().left + $("#centerContainer").innerWidth() - $("#refreshButton").width() - 20;
-    var refreshTopPos = $("#centerContainer").offset().top + $("#centerContainer").innerHeight() - $("#refreshButton").height() - 20;
-    $("#refreshButton").css("left", refreshLeftPos + "px");
-    $("#refreshButton").css("top", refreshTopPos + "px");
+  //Find Place for refresh button
+  var refreshLeftPos = $("#centerContainer").offset().left + $("#centerContainer").innerWidth() - $("#refreshButton").width() - 20;
+  var refreshTopPos = $("#centerContainer").offset().top + $("#centerContainer").innerHeight() - $("#refreshButton").height() - 20;
+  // $("#refreshButton").removeClass("hidden");
+  $("#refreshButton").css("left", refreshLeftPos + "px");
+  $("#refreshButton").css("top", refreshTopPos + "px");
+  
+  
+  
 
-    //Find Place for tweet button
-    var tweetLeftPos = $("#centerContainer").offset().left + 20;
-    var tweetTopPos = $("#centerContainer").offset().top + $("#centerContainer").innerHeight() - $("#tweetButton").height() - 20;
-    $("#tweetButton").css("left", tweetLeftPos + "px");
-    $("#tweetButton").css("top", tweetTopPos + "px");
+  //Find Place for tweet button
+  var tweetLeftPos = $("#centerContainer").offset().left + 20;
+  var tweetTopPos = $("#centerContainer").offset().top + $("#centerContainer").innerHeight() - $("#tweetButton").height() - 20;
+  $("#tweetButton").css("left", tweetLeftPos + "px");
+  $("#tweetButton").css("top", tweetTopPos + "px");
 
 
-  }, 1500);
+  //}, 0);
 
   //pixabay on bottom left
   var pixabayHeight = $(".pixabayCredit").outerHeight();
@@ -166,8 +170,8 @@ QuoteManager.prototype.displayQuote = function (quoteInfo) {
   $("#quoteSourceLink").html(quoteInfo.apiName);
   $("#quoteSourceLink").attr("href", quoteInfo.apiWebsite);
   $("#quoteSourceDiv").removeClass("hidden");
-  $("#refreshButton").removeClass("hidden");
-  $("#tweetButton").removeClass("hidden");
+  $("#refreshButton .btn").attr("disabled", false);  
+  $("#tweetButton .btn").attr("disabled", false);
 
   if ($.trim($("#quoteAuthor").html()) != "") {
     $("#quoteAuthor").removeClass("hidden");
