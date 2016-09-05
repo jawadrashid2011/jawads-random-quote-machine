@@ -33,10 +33,25 @@
 
       <div class="row row-content">
 
-        <div class="col-sm-8 col-sm-offset-2 centerContainer col-xs-10 col-xs-offset-1 flex-center text-center">
-          <p>
-            Content
-          </p>
+        <div class="col-sm-8 col-sm-offset-2 centerContainer col-xs-10 col-xs-offset-1 flex-center text-center" id="centerContainer">
+
+          <small class="text-left hidden" id="quoteSourceDiv"><strong>Quote Soruce:</strong> <a href="#" title="" id="quoteSourceLink" target="_blank"><span id="quoteSource"></span></a></small>
+          <blockquote class="hidden" id="quoteBlock">
+
+            <p id="quoteText"></p>
+            <footer id="quoteAuthor"></footer>
+          </blockquote>
+
+        </div>
+
+        <div id="refreshButton" class="hidden">
+          <a class="btn btn-success" href="#" onclick="getNewQuote()" title="Refresh">
+            <i class="fa fa-refresh fa-lg" id="refreshIcon"></i> Refresh</a>
+        </div>
+
+        <div id="tweetButton" class="hidden">
+          <a class="btn btn-primary" href="#" onclick="retweet()" title="Tweet">
+            <i class="fa fa-retweet fa-lg" id="refreshIcon"></i> Tweet</a>
         </div>
       </div>
     </div>
@@ -78,6 +93,12 @@
         <i class="fa fa-codepen fa-2x"></i>
       </a>
     </div>
+  </div>
+  <div class="pixabayCredit">
+    <a href="https://pixabay.com" target="_blank">
+      <img src="http://res.cloudinary.com/jawadrashid/image/upload/v1473073292/Quotes/pixabay-logo-square.svg" title="Backgrounds provided by pixabay.com"
+        data-toggle="credit" />
+    </a>
   </div>
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>

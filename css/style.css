@@ -47,7 +47,6 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  resize: vertical;
   overflow: auto;
 }
 
@@ -60,13 +59,13 @@ body {
   position: absolute;
   color: white;
   top:20px;
-  
+  left: -500px;
 }
 
 .footer {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: -500px;
+  top: -500px;
 }
 
 .contactInfo {
@@ -116,4 +115,26 @@ body {
 
 .fa-codepen {
     color: #000;
+}
+
+.pixabayCredit img {
+    width: 50px;
+}
+
+.pixabayCredit {
+    position: absolute;
+    top:-50px;
+    left:20px;
+}
+
+#refreshButton {
+    position: absolute;
+    left: -50px;
+    top: -50px;
+}
+
+#tweetButton {
+    position: absolute;
+    left: -50px;
+    top: -50px;
 }
