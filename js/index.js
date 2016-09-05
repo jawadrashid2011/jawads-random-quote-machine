@@ -41,9 +41,9 @@ function calculateJumbotronHeight() {
   // $("#refreshButton").removeClass("hidden");
   $("#refreshButton").css("left", refreshLeftPos + "px");
   $("#refreshButton").css("top", refreshTopPos + "px");
-  
-  
-  
+
+
+
 
   //Find Place for tweet button
   var tweetLeftPos = $("#centerContainer").offset().left + 20;
@@ -160,8 +160,20 @@ QuoteManager.prototype.getQuote = function () {
   });
 }
 
+QuoteManager.prototype.setTweetButton = function (quoteInfo) {
+  var text = '"' + encodeURIComponent(quoteInfo.quote.text) + '"';
+  if ($.trim(quoteInfo.quote.author) !== "") {
+    text += ' - ' + encodeURIComponent(quoteInfo.quote.author);
+  }
+  var baseUrl = "https://twitter.com/intent/tweet?";
+  baseUrl += "text=" + text;
+  baseUrl += "&url=http://goo.gl/PFEboz";
+  baseUrl += "&hashtags=CodePen,JawadRashid";
+  $("#tweetButton .btn").attr("href", baseUrl);
+}
+
 QuoteManager.prototype.displayQuote = function (quoteInfo) {
-  // changeBackground();
+  //changeBackground();
 
   $("#quoteText").html(quoteInfo.quote.text);
   $("#quoteAuthor").html(quoteInfo.quote.author);
@@ -170,8 +182,11 @@ QuoteManager.prototype.displayQuote = function (quoteInfo) {
   $("#quoteSourceLink").html(quoteInfo.apiName);
   $("#quoteSourceLink").attr("href", quoteInfo.apiWebsite);
   $("#quoteSourceDiv").removeClass("hidden");
-  $("#refreshButton .btn").attr("disabled", false);  
+  $("#refreshButton .btn").attr("disabled", false);
   $("#tweetButton .btn").attr("disabled", false);
+  console.log(quoteInfo);
+
+  this.setTweetButton(quoteInfo);
 
   if ($.trim($("#quoteAuthor").html()) != "") {
     $("#quoteAuthor").removeClass("hidden");
@@ -274,12 +289,19 @@ QuotesOnDesignAPI.prototype.getUrl = function () {
   return this.apiUrl + "&key=" + this.key;
 }
 
+QuotesOnDesignAPI.prototype.stripHtmlContent = function (html) {
+  var div = document.createElement("div");
+  div.innerHTML = html;
+  var text = div.textContent || div.innerText || "";
+  return $.trim(text);
+}
+
 QuotesOnDesignAPI.prototype.getQuote = function () {
   var deferredObject = $.Deferred();
   var that = this;
   $.getJSON(this.getUrl(), function (data) {
     try {
-      var quote = new Quote(data[0].content, data[0].title);
+      var quote = new Quote(that.stripHtmlContent(data[0].content), data[0].title);
       deferredObject.resolve(quote);
     } catch (ex) {
       deferredObject.reject("Invalid quote");
@@ -343,7 +365,7 @@ function getNewQuote() {
 
 $(document).ready(function () {
   calculateJumbotronHeight();
-  // getBackgrounds();
+  //getBackgrounds();
   initializeQuotes();
 
   $('[data-toggle="contact"]').tooltip({
