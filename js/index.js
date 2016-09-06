@@ -55,8 +55,8 @@ function calculateJumbotronHeight() {
   //}, 0);
 
   //pixabay on bottom left
-  var pixabayHeight = $(".pixabayCredit").outerHeight();
-  $(".pixabayCredit").css("top", (fullHeight - (pixabayHeight + 20)) + "px");
+  // var pixabayHeight = $(".pixabayCredit").outerHeight();
+  // $(".pixabayCredit").css("top", (fullHeight - (pixabayHeight + 20)) + "px");
 
 }
 var pixabayJSON = null;
@@ -184,7 +184,6 @@ QuoteManager.prototype.displayQuote = function (quoteInfo) {
   $("#quoteSourceDiv").removeClass("hidden");
   $("#refreshButton .btn").attr("disabled", false);
   $("#tweetButton .btn").attr("disabled", false);
-  console.log(quoteInfo);
 
   this.setTweetButton(quoteInfo);
 
